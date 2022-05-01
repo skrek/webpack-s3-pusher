@@ -25,7 +25,7 @@ function S3PusherPlugin(options) {
   if (options.exclude) {
     this.exclude = new RegExp(options.exclude);
   }
-
+  
   if (options.quiet) {
     this.quiet = options.quiet
   }
@@ -34,6 +34,9 @@ function S3PusherPlugin(options) {
     const config = {
       accessKeyId: options.key,
       secretAccessKey: options.secret
+    }
+    if (options.s3ForcePathStyle) {
+      config.s3ForcePathStyle = options.s3ForcePathStyle;
     }
 
     if (options.region) {
